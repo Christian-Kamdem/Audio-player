@@ -32,14 +32,33 @@
 .volume_control{
 	float:right;
 	margin-right:3%;
+	display: flex;
 }
 .volume_control img{
 	width: 30px;
 	height: 40px;
 	cursor: pointer;
+	left:1%;
 }
 .volume_control input{
 	margin-top:1%;
+	display: block;
+	-webkit-appearance: none;
+	appearance:none;
+	background: white;
+	height:1px;
+	outline: none;
+	margin-top:20px;
+	margin-left: 5px;
+}
+.volume_control input::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	appearance:none;
+	background-color: white;
+	border-radius: 10px;
+	height:15px;
+	width:15px;
+	cursor: pointer;
 }
 #header_part3{
 	height:42%;
