@@ -62,6 +62,37 @@
 }
 #header_part3{
 	height:42%;
+	width: 93%;
+	margin:auto;
+	display: flex;
+}
+#header_part3 nav{
+	display: inline-block;
+	color: white;
+}
+#audio_progress_wrapper{
+	width:76%;
+	margin-top:-0.5%;
+	margin-left:2.5%;
+	margin-right:3%;
+}
+#audio_progress{
+	-webkit-appearance: none;
+	appearance:none;
+	background: #ffb600;
+	height:1px;
+	outline: none;
+	margin-top: 4%;
+	width: 100%;		
+}
+#audio_progress::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	appearance:none;
+	background-color: #ffb600;
+	border-radius: 10px;
+	height:15px;
+	width:15px;
+	cursor: pointer;
 }
 #menu{
 	float:left;
