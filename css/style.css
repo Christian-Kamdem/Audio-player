@@ -61,7 +61,7 @@
 	cursor: pointer;
 }
 #header_part3{
-	height:42%;
+	height:12%;
 	width: 93%;
 	margin:auto;
 	display: flex;
@@ -69,11 +69,18 @@
 #header_part3 nav{
 	display: inline-block;
 	color: white;
+	font-size: 0.8em;
+}
+#header_part3_nav1{
+	float: left;
+}
+#header_part3_nav2{
+	float: right;
 }
 #audio_progress_wrapper{
-	width:76%;
-	margin-top:-0.5%;
-	margin-left:2.5%;
+	width:70%;
+	margin-top:-1%;
+	margin-left:1%;
 	margin-right:3%;
 }
 #audio_progress{
@@ -94,6 +101,11 @@
 	width:15px;
 	cursor: pointer;
 }
+#visualization{
+	height:30%;
+	width: 100%;
+	background-color: blue;
+}
 #menu{
 	float:left;
 	width: 30px;
@@ -102,7 +114,7 @@
 	margin-left:3%; 
 	cursor: pointer;
 }
-#add_song{
+#source{
 	float:right;
 	width: 30px;
 	height: 40px;

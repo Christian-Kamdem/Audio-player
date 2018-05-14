@@ -10,7 +10,7 @@
 			<section id="container_header">
 				<section id="header_part1">
 					<img src="images/menu-lines.svg" id="menu"/>
-					<img src="images/music-menu.svg" id="add_song"/>
+					<img src="images/music-menu.svg" id="source"/>
 				</section>
 				<section id="header_part2">
 				    <nav class="first_control">
@@ -25,7 +25,12 @@
 					</nav>
 				</section>
 				<section id="header_part3">
-					<nav>0 : 0</nav><nav id="audio_progress_wrapper"><input id="audio_progress" max="100" value="0" type="range"/></nav><nav>0 : 0</nav>
+					<nav id="header_part3_nav1">00:00:00</nav>
+					<nav id="audio_progress_wrapper"><input id="audio_progress" max="100" value="0" type="range"/></nav>
+					<nav id="header_part3_nav2">00:00:00</nav>
+				</section>
+				<section id="visualization">
+
 				</section>
 			</section>
 			<section id="container_body">
@@ -163,6 +168,6 @@
 				</div>							
 			</section>
 		</section>
-		<script src="script.js"></script>
+		<script src="scripts/script.js"></script>
 	</body>
 <html>

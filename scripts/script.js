@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",()=>{init();}
 ,false);
 
 //Début de la fonction init
-function init(){  	
+function init(){
     let sentinelle = false;
     let url;
     let compteur = 1;
@@ -13,13 +13,13 @@ function init(){
     let playlist = [];	
     const audio = document.createElement("audio");
     const audioAlt = document.createElement("audio");
-	const lecteur = document.getElementById("lecteur");
+	const lecteur = document.getElementById("container_header");
 	const source = document.getElementById("source");
-	const corps = document.getElementById("corps");	
-	const timeEnd = document.getElementById("timeEnd");
+	const corps = document.getElementById("container_body");
+	const timeStart = document.getElementById("header_part3_nav1");	
+	const timeEnd = document.getElementById("header_part3_nav2");
 	const volume = document.getElementById("volume");
-	const options = document.getElementById("section_option1");
-	const shuffle = document.getElementById("shuffle");
+	const options = document.getElementById("first_control");
 	//On teste le fichier au changement d'état de input:file
 	source.addEventListener("change",()=>{
 			if(validite_fichier(source.files[0].name)){
@@ -52,6 +52,11 @@ function init(){
 			compteur++;
 		}
 	},false);
+	//On lance l'option de recherche window après le click
+	source.addEventListener("click",()=>{
+		let source = document.createElement("input");
+		source.type = "file";
+	},false);
 	/*Event click sur la section des options audios*/
 	options.addEventListener("click",(e)=>{
 		if(e.target.id === "section_option1"){
@@ -72,7 +77,7 @@ function init(){
 		}else if(e.target.id === "stop"){
 			audio.pause();
 			audio.currentTime = 0;
-			timeEnd.innerHTML = "0:0";
+			timeEnd.innerHTML = "00:00:00";
 
 		}else if(e.target.id === "shuffle"){
 
