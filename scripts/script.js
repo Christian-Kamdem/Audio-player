@@ -43,7 +43,7 @@ function init(){
 	audioAlt.addEventListener("loadeddata",()=>{
 		
 		if(sentinelle){
-			let elt = '<div class="elt_liste"><span data-blob='+url+' data-position='+(compteur-1)+' class="titre_chanson">'+compteur+' - '+titre_chanson(fileDialog.files[0].name)+'</span><br/><span class="sous_titre_chanson">Artiste</span><br/><span class="sous_titre_chanson">Album</span><span class="time">'+format_date(audioAlt.duration)+'</span>';
+			let elt = '<div class="item"><nav class="play"><img src="images/play-button.svg"/></nav><span class="artist" data-blob='+url+' data-position='+(compteur-1)+'>'+compteur+' - '+titre_chanson(fileDialog.files[0].name)+'<span class="title">Inconnu</span></span><div class="time">'+format_date(audioAlt.duration)+'</div></div>';
 			corps.insertAdjacentHTML("beforeend",elt);
 			if(!audio.currentTime){
 				audio.dataset.position = compteur-1;
@@ -51,7 +51,7 @@ function init(){
 			playlist.push({'id':compteur,'titre':titre_chanson(fileDialog.files[0].name),'url':url,'duree':format_date(audioAlt.duration)});
 			//sessionStorage.setItem("playlist",JSON.stringify(playlist));
 			sentinelle = false;
-			compteur++;console.log(playlist);
+			compteur++;
 		}
 	},false);
 	//On lance l'option de recherche window après le click
@@ -178,7 +178,11 @@ function existence_son(nom,playlist){
 }
 //Fonction qui formate la date
 function format_date(duree_seconde){
-	return Math.round(duree_seconde/60*10)/10;
+	let time = parseInt(duree_seconde);
+	let minutes = 0;
+	minutes = (time - (time%60))/60;
+	secondes = time - minutes*60;
+	return minutes+" : "+time%60;
 }
 //Fonction pour afficher le titre de la chanson sans l'extension
 function titre_chanson(nom){
