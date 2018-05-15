@@ -20,15 +20,17 @@ function init(){
 	const timeEnd = document.getElementById("header_part3_nav2");
 	const volume = document.getElementById("volume");
 	const options = document.getElementById("first_control");
+	const fileDialog = document.createElement("input");
+	fileDialog.type = "file";
 	//On teste le fichier au changement d'état de input:file
-	source.addEventListener("change",()=>{
-			if(validite_fichier(source.files[0].name)){
-				if(existence_son(titre_chanson(source.files[0].name),playlist)){
+	fileDialog.addEventListener("change",()=>{
+			if(validite_fichier(fileDialog.files[0].name)){
+				if(existence_son(titre_chanson(fileDialog.files[0].name),playlist)){
 					sentinelle = false;
 					alert("Ce fichier existe déjà dans la playlist !");
 				}else{
 					sentinelle = true;
-					url = window.URL.createObjectURL(source.files[0]);
+					url = window.URL.createObjectURL(fileDialog.files[0]);
 					audioAlt.src = url
 				}				
 			}else{
@@ -41,21 +43,21 @@ function init(){
 	audioAlt.addEventListener("loadeddata",()=>{
 		
 		if(sentinelle){
-			let elt = '<div class="elt_liste"><span data-blob='+url+' data-position='+(compteur-1)+' class="titre_chanson">'+compteur+' - '+titre_chanson(source.files[0].name)+'</span><br/><span class="sous_titre_chanson">Artiste</span><br/><span class="sous_titre_chanson">Album</span><span class="time">'+format_date(audioAlt.duration)+'</span>';
+			let elt = '<div class="elt_liste"><span data-blob='+url+' data-position='+(compteur-1)+' class="titre_chanson">'+compteur+' - '+titre_chanson(fileDialog.files[0].name)+'</span><br/><span class="sous_titre_chanson">Artiste</span><br/><span class="sous_titre_chanson">Album</span><span class="time">'+format_date(audioAlt.duration)+'</span>';
 			corps.insertAdjacentHTML("beforeend",elt);
 			if(!audio.currentTime){
 				audio.dataset.position = compteur-1;
 			}
-			playlist.push({'id':compteur,'titre':titre_chanson(source.files[0].name),'url':url,'duree':format_date(audioAlt.duration)});
+			playlist.push({'id':compteur,'titre':titre_chanson(fileDialog.files[0].name),'url':url,'duree':format_date(audioAlt.duration)});
 			//sessionStorage.setItem("playlist",JSON.stringify(playlist));
 			sentinelle = false;
-			compteur++;
+			compteur++;console.log(playlist);
 		}
 	},false);
 	//On lance l'option de recherche window après le click
-	source.addEventListener("click",()=>{
-		let source = document.createElement("input");
-		source.type = "file";
+	source.addEventListener("click",()=>{		
+		fileDialog.click();
+
 	},false);
 	/*Event click sur la section des options audios*/
 	options.addEventListener("click",(e)=>{
