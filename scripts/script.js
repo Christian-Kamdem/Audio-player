@@ -19,9 +19,11 @@ function init(){
 	const timeStart = document.getElementById("header_part3_nav1");	
 	const timeEnd = document.getElementById("header_part3_nav2");
 	const volume = document.getElementById("volume");
-	const options = document.getElementById("first_control");
+	const progress = document.getElementById("audio_progress");
+	const options = document.getElementsByClassName("first_control");
 	const fileDialog = document.createElement("input");
 	fileDialog.type = "file";
+	fileDialog.multiple = true;
 	//On teste le fichier au changement d'état de input:file
 	fileDialog.addEventListener("change",()=>{
 			if(validite_fichier(fileDialog.files[0].name)){
@@ -60,8 +62,8 @@ function init(){
 
 	},false);
 	/*Event click sur la section des options audios*/
-	options.addEventListener("click",(e)=>{
-		if(e.target.id === "section_option1"){
+	options[0].addEventListener("click",(e)=>{
+		if(e.target.id === "first_control"){
 			e.stopPropagation();
 
 		}else if(e.target.id === "play"){
