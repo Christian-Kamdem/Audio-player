@@ -86,7 +86,7 @@
 #audio_progress{
 	-webkit-appearance: none;
 	appearance:none;
-	background: #ffb600;
+	background: #ffd943;
 	height:1px;
 	outline: none;
 	margin-top: 4%;
@@ -95,7 +95,7 @@
 #audio_progress::-webkit-slider-thumb{
 	-webkit-appearance: none;
 	appearance:none;
-	background-color: #ffb600;
+	background-color: #ffd943;
 	border-radius: 10px;
 	height:15px;
 	width:15px;

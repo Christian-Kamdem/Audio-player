@@ -84,7 +84,14 @@ function init(){
 			timeEnd.innerHTML = "00:00:00";
 
 		}else if(e.target.id === "shuffle"){
-
+			if(!random){
+				random = true;
+				document.getElementById("shuffle").src = "images/expand-arrowsYellow.svg";
+			}
+    		else{
+    			random = false;
+    			document.getElementById("shuffle").src = "images/expand-arrows.svg";
+    		}
 		}else if(e.target.id === "precedent"){
 			if(audio.dataset.position>0){
 				audio.dataset.position -= 1;
@@ -136,11 +143,6 @@ function init(){
 	//Event pour la gestion de la progress barre
     audio.addEventListener("timeupdate",(e)=>{
       progress.value = audio.currentTime/audio.duration*100;
-    },false);
-    //Event pour la lecture aléatoire
-    shuffle.addEventListener("click",(e)=>{
-    	if(!random){random = true;}
-    	else{random = false;}
     },false);
     //Event pour controler le click sur la playlist
     corps.addEventListener("click",(e)=>{
