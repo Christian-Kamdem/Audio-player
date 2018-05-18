@@ -81,7 +81,7 @@ function init(){
 		}else if(e.target.id === "stop"){
 			audio.pause();
 			audio.currentTime = 0;
-			timeEnd.innerHTML = "00:00:00";
+			timeEnd.innerHTML = "00:00";
 
 		}else if(e.target.id === "shuffle"){
 			if(!random){
@@ -140,6 +140,14 @@ function init(){
 	    progress.addEventListener("change",(e)=>{
 	      audio.currentTime = progress.value*audio.duration/100;
 	    },false);
+	//Event pour changer les icones au lancement de la lecture
+	audio.addEventListener("playing",()=>{
+		document.getElementById("play").src = "images/pause.svg";
+	},false);
+	//Event pour changer les icones à la fin de la lecture
+	audio.addEventListener("ended",()=>{
+		document.getElementById("play").src = "images/play-button.svg";
+	},false);
 	//Event pour la gestion de la progress barre
     audio.addEventListener("timeupdate",(e)=>{
       progress.value = audio.currentTime/audio.duration*100;

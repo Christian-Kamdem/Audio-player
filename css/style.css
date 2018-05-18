@@ -65,6 +65,7 @@
 	width: 93%;
 	margin:auto;
 	display: flex;
+	float:right;
 }
 #header_part3 nav{
 	display: inline-block;
