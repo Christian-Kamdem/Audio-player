@@ -144,6 +144,10 @@ function init(){
     audio.addEventListener("timeupdate",(e)=>{
       progress.value = audio.currentTime/audio.duration*100;
     },false);
+    //Event pour mettre à jour le temps restant
+    audio.addEventListener("timeupdate",()=>{
+    	document.getElementById("header_part3_nav1").innerHTML = format_date(audio.currentTime);
+    },false);
     //Event pour controler le click sur la playlist
     corps.addEventListener("click",(e)=>{
     	if(e.target.id !== "corps" && e.target.className === "titre_chanson"){
