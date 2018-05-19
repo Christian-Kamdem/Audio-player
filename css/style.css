@@ -61,6 +61,7 @@
 	cursor: pointer;
 }
 #header_part3{
+	position: relative;
 	height:12%;
 	width: 93%;
 	margin:auto;
@@ -106,22 +107,21 @@
 	height:30%;
 	width: 100%;
 }
-#menu{
-	float:left;
-	width: 30px;
-	height: 40px;
-	margin-top:1%;
-	margin-left:3%; 
-	cursor: pointer;
-}
-#source{
+#aboutUs{
 	float:right;
 	width: 30px;
 	height: 40px;
 	margin-top:1%;
 	margin-right:3%; 
 	cursor: pointer;
-    animation-duration: 4s;
+}
+#source{
+	float:left;
+	width: 30px;
+	height: 40px;
+	margin-top:1%;
+	margin-left:3%; 
+	cursor: pointer;
 }
 #audio_control{
 	bottom:0px;
